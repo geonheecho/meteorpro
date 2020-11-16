@@ -1,0 +1,32 @@
+{
+  "name": "meteorpro",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "@material-ui/core": "^4.11.0",
+    "bcrypt": "^5.0.0",
+    "bootstrap": "^4.5.3",
+    "history": "^5.0.0",
+    "meteor-node-stubs": "^1.0.1",
+    "mongoose-auto-increment": "^5.0.1",
+    "node-excel-export-meteor": "^1.4.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-meteor-data": "^0.2.11",
+    "react-router-dom": "^5.2.0",
+    "xlsx": "^0.16.8"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.jsx",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}
