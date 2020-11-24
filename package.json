@@ -10,10 +10,14 @@
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "@material-ui/core": "^4.11.0",
+    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "bootstrap": "^4.5.3",
+    "cookie-parser": "^1.4.5",
     "history": "^5.0.0",
+    "jquery": "^3.5.1",
     "meteor-node-stubs": "^1.0.1",
+    "mongodb-autoincrement": "^1.0.1",
     "mongoose-auto-increment": "^5.0.1",
     "node-excel-export-meteor": "^1.4.2",
     "react": "^16.13.1",
@@ -28,5 +32,9 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0"
   }
 }

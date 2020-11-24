@@ -3,6 +3,7 @@ import { BoardCollection } from '/imports/db/BoardCollection';
 
 Meteor.publish('tasks', function publishBoard() {
     return BoardCollection.find({ userId: this.userId });
+
 })
 
 

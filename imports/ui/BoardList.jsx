@@ -17,7 +17,13 @@ export const BoardList = () => {
     BoardCollection.find({}, { sort: { createAt: -1 } }).fetch()
   );
 
-  const deleteBoard = (_id) => Meteor.call('tasks.remove', _id)
+  const deleteBoard = (_id) => {
+    if (window.confirm('해당 게시물을 삭제하시겠습니까?\n삭제된 데이터는 복구할 수 없습니다.') == true) {
+    } else {
+      return;
+    }
+    Meteor.call('tasks.remove', _id)
+  }
 
   const toggleChecked = ({ _id, isChecked }) =>
     Meteor.call('tasks.setIsChecked', _id, isChecked);
@@ -45,4 +51,3 @@ export const BoardList = () => {
     </div >
   );
 };
-

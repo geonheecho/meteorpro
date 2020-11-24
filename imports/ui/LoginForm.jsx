@@ -10,7 +10,7 @@ export const LoginForm = () => {
 
         e.preventDefault();
         Meteor.loginWithPassword(username, password);
-        alert("로그인성공");
+
     };
 
     return (

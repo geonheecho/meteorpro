@@ -5,33 +5,47 @@ import { BoardCollection } from '/imports/db/BoardCollection';
 export const BoardForm = () => {
 
     const [title, setTitle] = useState('');
+    console.log("title", title);
     const [category, setCategory] = useState('');
+    console.log("category", category);
     const [dictionary, setDictionary] = useState('');
+    console.log("dictionary", dictionary);
     const [language, setLanguage] = useState('');
+    console.log("language", language);
     const [word, setWord] = useState('');
+    console.log("word", word);
 
     const handleSubmit = e => {
         e.preventDefault();
 
         if (!title) return;
-        Meteor.call('tasks.insert', title, category, dictionary, language, word);
-        BoardCollection.insert({
+        Meteor.call('tasks.insert', title, category, dictionary, language, word, function (error) {
+            if (!error) {
+                console.log('글쓰기 성공');
+                history.go(-1);
+            } else {
+                console.log(error);
+                console.log('글쓰기 실패');
+            }
 
-            title: title.trim(),
-            category: category.trim(),
-            dictionary: dictionary.trim(),
-            language: language.trim(),
-            word: word.trim(),
-            createdAt: new Date(),
-        });
+            BoardCollection.insert({
+                // _id: getNextSequence("userid"),
+                title: title.trim(),
+                category: category.trim(),
+                dictionary: dictionary.trim(),
+                language: language.trim(),
+                word: word.trim(),
+
+                createdAt: new Date(),
+            });
 
 
-        setTitle('');
-        setCategory('');
-        setDictionary('');
-        setLanguage('');
-        setWord('');
-
+            setTitle('');
+            setCategory('');
+            setDictionary('');
+            setLanguage('');
+            setWord('');
+        })
     };
 
     return (
@@ -69,9 +83,12 @@ export const BoardForm = () => {
                 value={word}
                 onChange={e => setWord(e.target.value)}
             /><br></br><br></br>
+            {/* <div className="post-view-row">
+                <label>?? :</label>
+                <label><BoardUpdate title={title} category={category} language={language} dictionary={dictionary} word={word} /> </label>
+            </div> */}
 
-
-            <button type="submit">사전 추가하기</button>
+            <button type="submit" >사전 추가하기</button>
         </form>
     );
-}
+} 

@@ -2,6 +2,7 @@ import React from 'react';
 import { BoardList } from './BoardList';
 import { BoardForm } from './BoardForm';
 import { BoardDetails } from './BoardDetails';
+import { BoardUpdate } from './BoardUpdate';
 
 import { useTracker } from 'meteor/react-meteor-data';
 
@@ -28,10 +29,10 @@ export const Pages = () => {
                 &nbsp;&nbsp;&nbsp; */}
             </div>
             <div>
-                <Route path="/BoardList" component={BoardList}></Route>
-                <Route path="/BoardForm" component={BoardForm}></Route>
-                <Route path="/BoardDetails/:_id" component={BoardDetails}></Route>
-                {/* <Route path="/ExcelForm" component={ExcelForm}></Route> */}
+                <Route exact path="/BoardList" component={BoardList}></Route>
+                <Route exact path="/BoardForm" component={BoardForm}></Route>
+                <Route exact path="/BoardDetails/:_id" component={BoardDetails}></Route>
+                <Route exact path="/BoardUpdate/:_id" component={BoardUpdate}></Route>
                 {/* <Route path="/LoginForm" component={LoginForm}></Route> */}
             </div>
 

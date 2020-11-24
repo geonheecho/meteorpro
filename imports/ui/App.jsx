@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Pages } from './Pages';
 import { useTracker } from 'meteor/react-meteor-data';
 import { LoginForm } from './LoginForm';
