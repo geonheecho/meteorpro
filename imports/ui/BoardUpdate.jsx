@@ -21,13 +21,7 @@ export const BoardUpdate = ({ match }) => {
     const dictionary1 = data ? data.dictionary : ""
     const word1 = data ? data.word : ""
 
-    const state = {
-        title1: '',
-        category1: '',
-        language1: '',
-        dictionary1: '',
-        word1: '',
-    }
+   
 
     const [title, setTitle] = useState('');
     console.log("title", title1);
